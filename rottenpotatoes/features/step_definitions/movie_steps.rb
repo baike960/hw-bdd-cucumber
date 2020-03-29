@@ -19,7 +19,10 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  fail "Unimplemented"
+  body = page.body
+  first = body.index(e1)
+  second = body.index(e2)
+  first.should < second
 end
 
 # Make it easier to express checking or unchecking several boxes at once
@@ -42,5 +45,7 @@ end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  fail "Unimplemented"
+  within "tbody" do
+  page.all('tr').count.should == 10
+end 
 end

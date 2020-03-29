@@ -40,3 +40,6 @@ And I should see "Raiders of the Lost Ark"
 
 Scenario: all ratings selected
   # see assignment
+  Given I check the following ratings: G,PG,PG-13,R
+  And I press "Refresh"
+  Then I should see all the movies 
