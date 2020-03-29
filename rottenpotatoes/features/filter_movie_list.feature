@@ -29,5 +29,14 @@ Scenario: restrict to movies with 'PG' or 'R' ratings
   # enter step(s) to ensure that PG and R movies are visible
   # enter step(s) to ensure that other movies are not visible
 
+When I check the following ratings: PG,R
+And I uncheck the following ratings: PG-13,G
+And I press "Refresh"
+Then I should see "The Terminator"
+And I should see "When Harry Met Sally"
+And I should see "Amelie"
+And I should see "The Incredibles"
+And I should see "Raiders of the Lost Ark"
+
 Scenario: all ratings selected
   # see assignment
